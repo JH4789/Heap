@@ -5,6 +5,9 @@ Node::Node(int newdata) {
   left = NULL;
   right = NULL;
 }
+void Node::setData(int newdata) {
+  data = newdata;
+}
 int Node::getData() {
   return data;
 }
@@ -13,4 +16,10 @@ void Node::setLeft(Node* newleft) {
 }
 void Node::setRight(Node* newright) {
   right = newright;
+}
+Node* Node::getLeft() {
+  return left;
+}
+Node* Node::getRight() {
+  return right;
 }
