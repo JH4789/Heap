@@ -5,6 +5,11 @@ Node::Node(int newdata) {
   left = NULL;
   right = NULL;
 }
+Node::~Node() {
+  delete &data;
+  left = NULL;
+  right = NULL;
+}
 void Node::setData(int newdata) {
   data = newdata;
 }

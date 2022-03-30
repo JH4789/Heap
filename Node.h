@@ -8,6 +8,7 @@ class Node{
   Node(int newdata);
   void setData(int newdata);
   int getData();
+  ~Node();
   void setLeft(Node*);
   void setRight(Node*);
   Node* getLeft();

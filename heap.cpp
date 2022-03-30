@@ -13,6 +13,7 @@ using namespace std;
 void addHeap(Node* newnode, Node* & head, Node* array[], int & sizecount);
 void printFormat(Node* head, int space);
 void postfixprint(Node* current);
+void deleteTree(Node* treehead);
 int main() {
   Node* heaparray[100];
   int sizecount = 1;
@@ -31,6 +32,9 @@ int main() {
     }
     else if (strcmp(commandinput, "PRINT") == 0) {
         printFormat(treehead, 0);
+    }
+    else if (strcmp(commandinput, "DELETE") == 0) {
+      deleteTree(treehead);
     }
     else if (strcmp(commandinput, "QUIT") == 0) {
       running = false;
@@ -77,6 +81,32 @@ void addHeap(Node* newnode, Node* & head, Node* array[], int & sizecount) {
     }
   }
 
+}
+void deleteTree(Node* treehead) {
+  if(treehead == NULL) {
+    cout << "NULL!";
+    return;
+  }
+  else {
+    
+    Node* current = treehead;
+    while(current != NULL) {
+      if(current->getRight() != NULL) {
+	current = current->getRight();
+      }
+      else if (current->getLeft() != NULL) {
+        current = current->getLeft();
+      }
+      else {
+	break;
+      }
+    }
+    cout << current->getData() << endl;
+    int store = treehead->getData();
+    treehead->setData(current->getData());
+    //delete current;
+    
+  }
 }
 void printFormat(Node* head, int space) {
   if (head == NULL) {
