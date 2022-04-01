@@ -6,7 +6,6 @@ Node::Node(int newdata) {
   right = NULL;
 }
 Node::~Node() {
-  delete &data;
   left = NULL;
   right = NULL;
 }
