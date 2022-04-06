@@ -131,21 +131,21 @@ void deleteTree(Node* array[], int size) {
     Node* current = array[0];
     while(current->getLeft() != NULL || current->getRight() != NULL) {
       //Special function custom made to compare the value of the data in child nodes, even if they are null
-      if(current->getSLeft() > current->getSRight()) {
+      if(current->getSLeft() > current->getSRight() && current->getData() < current->getSLeft()) {
 	int replacedata = current->getData();
 	current->setData(current->getLeft()->getData());
 	current->getLeft()->setData(replacedata);
 	current = current->getLeft();
       }
-      else if (current->getSLeft() < current->getSRight()){
-        int replacedata = current->getData();
+      else if (current->getSLeft() < current->getSRight() && current->getData() < current->getSRight()){
+	int replacedata = current->getData();
 	current->setData(current->getRight()->getData());
 	current->getRight()->setData(replacedata);
 	current = current->getRight();
       }
       else {
 	//Checks for a case where the two child nodes have equal value
-	if(current->getSLeft() != -1) {
+	if(current->getSLeft() != -1 && current->getSLeft() > current->getData()) {
 	int replacedata = current->getData();
 	current->setData(current->getSLeft());
 	current->getLeft()->setData(replacedata);
